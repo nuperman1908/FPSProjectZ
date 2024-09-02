@@ -211,7 +211,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: -1.3051211e-27}
+  m_BoundingSphereOverride: {x: -0.8, y: 8, z: 8.8, w: -9.6}
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
@@ -520,9 +520,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 10
   range: 100
+  fireRate: 15
   fpsCam: {fileID: 1216049934}
   flash: {fileID: 1028132224}
-  impactEffect: {fileID: 5011921853369434380, guid: 4196079366570bb46b19948c70182e84, type: 3}
+  impactEffect: {fileID: 7974168860192402325, guid: b2523772bff9bf5418904a4044f198f7, type: 3}
 --- !u!1 &916586906
 GameObject:
   m_ObjectHideFlags: 0
