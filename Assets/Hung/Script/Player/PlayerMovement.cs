@@ -5,7 +5,6 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     public CharacterController controller;
-    public Animator animator;
 
     public float speed = 12f;
     public float gravity = -9.81f;
@@ -26,18 +25,6 @@ public class PlayerMovement : MonoBehaviour
             velocity.y = -2f;
         }
 
-        bool pressW = Input.GetKey("w");
-        if (pressW)
-        {
-            animator.SetBool("isRunning", true);
-        }
-
-        if (!pressW)
-        {
-            animator.SetBool("isRunning", false);
-        }
-
-
         float x = Input.GetAxis("Horizontal");
         float z = Input.GetAxis("Vertical");
 
@@ -46,7 +33,6 @@ public class PlayerMovement : MonoBehaviour
 
         if(Input.GetButtonDown("Jump") && isGrounded)
         {
-            animator.Play("Jump_com");
             velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
         }
 
