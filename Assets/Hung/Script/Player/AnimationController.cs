@@ -5,8 +5,7 @@ using UnityEngine;
 public class AnimationController : MonoBehaviour
 {
     public Animator animator;
-    float velocity = 0f;
-    
+        
     void Update()
     {
         bool pressW = Input.GetKey("w");

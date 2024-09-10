@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Gun : MonoBehaviour
 {
+    //Gun Setting
     public float damage = 10f;
     public float range = 100f;
     public float fireRate = 15f;
@@ -11,10 +12,10 @@ public class Gun : MonoBehaviour
     public Camera fpsCam;
     public ParticleSystem flash;
     public GameObject impactEffect;
+    public GameObject bulletObject;
 
     private float nextTimeToFire = 0f;
 
-    // Update is called once per frame
     void Update()
     {
         if (Input.GetButton("Fire1") && Time.time >= nextTimeToFire)
@@ -36,8 +37,17 @@ public class Gun : MonoBehaviour
             {
                 target.TakeDamage(damage);
             }
+            
             GameObject impaceGo = Instantiate(impactEffect, hit.point,Quaternion.LookRotation(hit.normal));
             Destroy(impaceGo,2f);
+
+            //shoot a bullet and destroy it after 2s
+            GameObject bullet = Instantiate(bulletObject, flash.transform.position,Quaternion.LookRotation(hit.normal));
+            Vector3 direction = (hit.point - bullet.transform.position).normalized;
+            Rigidbody rb = bullet.GetComponent<Rigidbody>();
+            rb.AddForce(direction * 5f, ForceMode.VelocityChange);
+            Destroy(bullet, 2f);
+
         }
     }
 }
