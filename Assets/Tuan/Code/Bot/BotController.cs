@@ -14,8 +14,8 @@ namespace Tuan
 
         [Header("move")]
         public Vector3 walkPoint;
-        public bool walkPointSet;
-        public float walkPointRange;
+        public float walkPointRange, timeChangeWalkPoint;
+        bool walkPointSet;
 
         [Header("Attack")]
         public float timeBtwAtk;
@@ -49,12 +49,7 @@ namespace Tuan
             {
                 agent.SetDestination(walkPoint);
             }
-            Vector3 distanceToWalkPoint = transform.position - walkPoint;
-
-            if (distanceToWalkPoint.magnitude <0.5f)
-            {
-                walkPointSet = false;
-            }
+            
         }
 
         private void SearchWalkPoint()
@@ -85,6 +80,7 @@ namespace Tuan
             {
                 //code atk
                 Debug.LogWarning("enemy atk");
+                //
 
                 attacked = true;
                 Invoke(nameof(ResetAttack), timeBtwAtk);
